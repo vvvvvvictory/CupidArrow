@@ -1,0 +1,37 @@
+﻿<Window x:Class="CupidArrow.Lover"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CupidArrow"
+        mc:Ignorable="d"
+        Title="丘比特之箭" Height="768" Width="1366" MinWidth="500" MinHeight="500" LocationChanged="Lover_OnLocationChanged" Closed="Lover_OnClosed">
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Resources/Style/HeartStyle.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
+  <Grid>
+    <TextBlock Name="X_RomanticLines" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="100" />
+    <Canvas Name="X_Canvas" SizeChanged="X_Canvas_OnSizeChanged">
+      <local:LeftArrow x:Name="X_LeftArrow" LeftArrowFill="Red" Panel.ZIndex="-1" Width="800" Height="60" LeftArrowWidth="60" LeftShaftWidth="20">
+        <local:LeftArrow.RenderTransform>
+          <RotateTransform x:Name="X_ArrowRotateTransform" CenterX="400" CenterY="30" Angle="0" />
+        </local:LeftArrow.RenderTransform>
+      </local:LeftArrow>
+      <Image Name="X_Lover" Source="Resources/Images/Heart.png" Style="{StaticResource Style_HeartImage}" Panel.ZIndex="1" RenderTransformOrigin="0.5 0.5">
+        <Image.RenderTransform>
+          <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+        </Image.RenderTransform>
+      </Image>
+      <Image Name="X_Me" Source="Resources/Images/Heart.png" Style="{StaticResource Style_HeartImage}" Panel.ZIndex="1" RenderTransformOrigin="0.5 0.5">
+        <Image.RenderTransform>
+          <ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+        </Image.RenderTransform>
+      </Image>
+    </Canvas>
+    <TextBlock Name="X_CloseText" Text="YOU CLOSE, I CLOSE !" FontSize="64" Foreground="Red" Visibility="Hidden" VerticalAlignment="Center" HorizontalAlignment="Center" />
+  </Grid>
+</Window>
